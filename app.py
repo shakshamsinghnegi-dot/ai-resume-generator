@@ -10,7 +10,7 @@ score""")
 
 
 #===============AGENT CODE===============
-import IPython as ip
+
 import os
 import time
 import langchain
@@ -20,7 +20,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 import pytesseract as pyt
 from tavily import TavilyClient
 from langchain.messages import SystemMessage, HumanMessage
-import numpy as no
+import numpy as np
 import streamlit as st
 from langchain_community.document_loaders import PyMuPDFLoader
 
@@ -77,11 +77,13 @@ def prompt_generator(agent):
   in HTML format, include that in prompt"""
   response = agent.invoke(prompt)
   file_name = 'prompt.py'
-  with open(file_name, 'w') as f:
+  
+    with open(file_name, 'w') as f:
     f.write(response.content[-1]['text'])
   return "Prompt file generated Successfully, agent can read it"
 
 
+prompt_generator(model)
 
 # tool 2:
 # tool 2:
@@ -92,7 +94,7 @@ def resume_maker_prompt():
   prompt = f.read()
  return prompt
   
-
+resume_maker_prompt()
 #========================generate resume====================
 prompt = """You are a helpful AI assistant
 with job resume maker, your task is to give
@@ -117,3 +119,5 @@ if st.button("Generate Resume")
     code = response['messages'][-1].content[-1]['text']
 
     st.markdown(code)
+    st.html(code, width="stretch", unsafe_allow_javascript=True)
+
