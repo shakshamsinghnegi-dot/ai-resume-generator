@@ -37,7 +37,7 @@ if not (GOOGLE_API_KEY) and not (GROQ_API_KEY ) and not (TAVILY_API_KEY):
     st.sidebar.warning("PASS API KEYS")
     st.stop()
 else:
-    st.write("ELSE CODE")
+    st.success("API KEY LOADED")
 
 # ===============MODEL BUILDING=============
 model = ChatGoogleGenerativeAI(
@@ -113,7 +113,7 @@ if uploaded_file is not None:
     try:
         image = Image.open(uploaded_file)
         
-        st.image(image, caption="Uploaded Image", use_container_width=True)
+        st.sidebar.image(image, caption="Uploaded Image", use_container_width=True)
         
         if image.mode in ("RGBA", "P"):
             image = image.convert("RGB")
@@ -142,7 +142,11 @@ user_info = st.text_input("Enter your information")
 
 user_details = f"""user details: given below:
 Resume info: {user_info}
-Photo: {uploaded_file }
+Photo: {uploaded_file }\
+Photo present in current directory with name as
+uploaded_file, and once resume generated give
+download button in same html code.
+Default if not given: Give Python Developer Resume"""
 Default if not given: Give Python Developer Resume"""
 
 
