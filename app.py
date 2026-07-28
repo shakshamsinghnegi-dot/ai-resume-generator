@@ -114,7 +114,7 @@ query = final_prompt+user_details
 import base64
 
 
-OPTIONS = [("DELHI", "NOIDA", "GURGAON/GURUGRAM",
+OPTIONS = ["DELHI", "NOIDA", "GURGAON/GURUGRAM",
 "KANPUR", "LUCKNOW", "BANGLORE", "PUNE"]
 LOCATION = st.sidebar.multiselect('SELECT LOCATION:',
 options = OPTIONS)
