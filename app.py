@@ -127,7 +127,7 @@ want latest job news in using tavily,
 try top 10 search or whatever available
 and give result like naukri theme design with
 job name, job desc, salary,
-apply linkand  output must be in html""
+apply linkand  output must be in html"""
 
 
 if st.button('generate resume'):
