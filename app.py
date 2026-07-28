@@ -122,7 +122,7 @@ JOB_PROFILE = ["PYTHON DEVELOPER", 'GEN AI',
 'FULL-STACK DEVELOPER', 'DATA ANALYST']
 PROFILE = st.sidebar.multiselect("SELECT JOB ROLE",
 options = JOB_PROFILE)
-job_prompt = f"""Based on (PROFILE) jobs in {LOCATION}, I
+job_prompt = f"""Based on {PROFILE} jobs in {LOCATION}, I
 want latest job news in using tavily,
 try top 10 search or whatever available
 and give result like naukri theme design with
@@ -152,4 +152,3 @@ if st.button('generate resume'):
     
     job_code = response['messages'][-1].content[-1]['text']
     st.html(job_code, width="stretch", unsafe_allow_javascript=True)
-      
